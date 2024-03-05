@@ -1,0 +1,7 @@
+numpy==1.24.4
+opencv_contrib_python==4.9.0.80
+opencv_python==4.9.0.80
+pandas==2.0.3
+pandastable==0.13.1
+Pillow==10.2.0
+screeninfo==0.8.1
