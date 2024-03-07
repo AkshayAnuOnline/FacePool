@@ -140,8 +140,12 @@ def getImagesAndLabels(path):
     Ids = []
     # now looping through all the image paths and loading the Ids and the images
     for imagePath in imagePaths:
-        # loading the image and converting it to gray scale
-        pilImage = Image.open(imagePath).convert('L')
+        try:
+            # loading the image and converting it to gray scale
+            pilImage = Image.open(imagePath).convert('L')
+        except (Image.UnidentifiedImageError, OSError):
+            # Skip files that cannot be identified as images
+            continue
         # Now we are converting the PIL image into numpy array
         imageNp = np.array(pilImage, 'uint8')
         # getting the Id from the image
